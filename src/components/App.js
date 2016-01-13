@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { CallList } from 'components/CallList';
 import { TextMessageList } from 'components/TextMessageList';
-
+import { Grid, Row, Col } from 'react-bootstrap';
 
 export class App extends Component {
   constructor(props) {
@@ -11,14 +11,20 @@ export class App extends Component {
       messages: []
     };
   }
-  
+
   render() {
     return (
-      <div>
+      <Grid>
         <h1> Calls Application </h1>
-        <CallList calls={this.state.calls} />
-        <TextMessageList messages={this.state.messages} />
-      </div>
+        <Row>
+          <Col xs={6}>
+            <CallList calls={this.state.calls} />
+          </Col>
+          <Col xs={6}>
+            <TextMessageList messages={this.state.messages} />
+          </Col>
+        </Row>
+      </Grid>
     );
   }
 }

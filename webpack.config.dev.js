@@ -8,11 +8,20 @@ module.exports = {
     'webpack-hot-middleware/client',
     './src/index'
   ],
+
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
     publicPath: '/static/'
   },
+
+  resolve: {
+    alias: {
+      components: path.join(__dirname, 'src', 'components')
+    },
+    extensions: ['', '.js', '.jsx']
+  },
+
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()

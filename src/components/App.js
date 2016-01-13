@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
-import { CallList } from './CallList';
-import { TextMessageList } from './TextMessageList';
+import { CallList } from 'components/CallList';
+import { TextMessageList } from 'components/TextMessageList';
 
 
 export class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      calls: [],
+      messages: []
+    };
+  }
+  
   render() {
     return (
       <div>

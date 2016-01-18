@@ -3,6 +3,7 @@ import { CallList } from 'components/CallList';
 import { TextMessageList } from 'components/TextMessageList';
 import { Grid, Row, Col } from 'react-bootstrap';
 import { API } from 'application/api'
+import _ from 'lodash/fp';
 
 export class App extends Component {
   constructor(props) {
@@ -16,6 +17,17 @@ export class App extends Component {
   componentDidMount() {
     this.loadData();
   }
+
+  newText = (textInfo) => {
+    this.setState({
+      messages: _.concat(this.state.messages, {
+        id: this.state.messages.length + 1,
+        from: textInfo.from,
+        number: textInfo.number,
+        status: "draft"
+      })
+    });
+  };
 
   loadData = () => {
     this.setState({

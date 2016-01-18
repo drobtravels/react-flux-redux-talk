@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ListGroupItem, Button, Row, Col } from 'react-bootstrap';
-import { Icon } from 'components/icon';
+import { Icon } from 'components/Icon';
 
 export class Call extends Component {
 

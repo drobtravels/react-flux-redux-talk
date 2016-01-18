@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { CallList } from 'components/CallList';
 import { TextMessageList } from 'components/TextMessageList';
 import { Grid, Row, Col } from 'react-bootstrap';
+import { API } from 'application/api'
 
 export class App extends Component {
   constructor(props) {
@@ -11,6 +12,16 @@ export class App extends Component {
       messages: []
     };
   }
+
+  componentDidMount() {
+    this.loadData();
+  }
+
+  loadData = () => {
+    this.setState({
+      calls: API.getCalls()
+    });
+  };
 
   render() {
     return (

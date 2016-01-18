@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-import { Panel, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Call } from 'components/Call';
+import { Panel, ListGroup} from 'react-bootstrap';
 
 export class CallList extends Component {
 
   callNodes = () => {
     return this.props.calls.map((call) => {
-      return (
-        <ListGroupItem key={call.id} header={call.from} >
-          <span>{call.number}</span>
-        </ListGroupItem>
-      )
+      return <Call key={call.id} {...call} />
     });
   };
 

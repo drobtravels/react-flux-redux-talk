@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-import { Panel, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Panel, ListGroup } from 'react-bootstrap';
+import { TextMessage } from 'components/TextMessage';
 
 export class TextMessageList extends Component {
 
   messageNodes = () => {
     return this.props.messages.map( (message) => {
-      return (
-        <ListGroupItem key={message.id} header={message.from}>
-          <span>{message.body}</span>
-        </ListGroupItem>
-      )
+      return <TextMessage key={message.id} {...message} />
     });
   };
 

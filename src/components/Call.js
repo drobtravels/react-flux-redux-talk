@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { ListGroupItem } from 'react-bootstrap';
+import { ListGroupItem, Button, Row, Col } from 'react-bootstrap';
+import { Icon } from 'components/icon';
 
 export class Call extends Component {
 
@@ -7,6 +8,9 @@ export class Call extends Component {
     return (
       <ListGroupItem header={this.props.from} >
         <span>{this.props.number}</span>
+        <Button bsStyle="success" onClick={this.props.textBack} className="text-caller" >
+          <Icon type="envelope"/>
+        </Button>
       </ListGroupItem>
     );
   }

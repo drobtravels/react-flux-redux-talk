@@ -4,11 +4,15 @@ import { Icon } from 'components/icon';
 
 export class Call extends Component {
 
+  textBack = () => {
+    this.props.textBackCallback(this.props);
+  };
+
   render() {
     return (
       <ListGroupItem header={this.props.from} >
         <span>{this.props.number}</span>
-        <Button bsStyle="success" onClick={this.props.textBack} className="text-caller" >
+        <Button bsStyle="success" onClick={this.textBack} className="text-caller" >
           <Icon type="envelope"/>
         </Button>
       </ListGroupItem>

@@ -30,7 +30,7 @@ export class App extends Component {
         <h1> Calls Application </h1>
         <Row>
           <Col xs={3}>
-            <CallList calls={this.state.calls} />
+            <CallList calls={this.state.calls} sendText={this.newText} />
           </Col>
           <Col xs={8}>
             <TextMessageList messages={this.state.messages} />

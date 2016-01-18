@@ -4,7 +4,6 @@ var webpack = require('webpack');
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: [
-    'eventsource-polyfill', // necessary for hot reloading with IE
     'webpack-hot-middleware/client',
     './src/index'
   ],
@@ -17,9 +16,10 @@ module.exports = {
 
   resolve: {
     alias: {
-      components: path.join(__dirname, 'src', 'components')
+      components: path.join(__dirname, 'src', 'components'),
+      application: path.join(__dirname, 'src')
     },
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', '.json']
   },
 
   plugins: [
@@ -27,7 +27,9 @@ module.exports = {
     new webpack.NoErrorsPlugin()
   ],
   module: {
-    loaders: [{
+    loaders: [
+      { test: /\.json$/, loaders: ['json'], include: path.join(__dirname, 'src') },
+      {
       test: /\.jsx?/,
       loaders: ['babel'],
       include: path.join(__dirname, 'src')

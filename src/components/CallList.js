@@ -15,7 +15,7 @@ export class CallList extends Component {
 
   render() {
     return(
-      <Panel header="Calls" >
+      <Panel header={<h2>Calls</h2>} >
         <ListGroup>
           {this.callNodes()}
         </ListGroup>

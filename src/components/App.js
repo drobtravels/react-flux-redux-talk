@@ -19,7 +19,8 @@ export class App extends Component {
 
   loadData = () => {
     this.setState({
-      calls: API.getCalls()
+      calls: API.getCalls(),
+      messages: API.getMessages()
     });
   };
 
@@ -28,10 +29,10 @@ export class App extends Component {
       <Grid>
         <h1> Calls Application </h1>
         <Row>
-          <Col xs={6}>
+          <Col xs={3}>
             <CallList calls={this.state.calls} />
           </Col>
-          <Col xs={6}>
+          <Col xs={8}>
             <TextMessageList messages={this.state.messages} />
           </Col>
         </Row>

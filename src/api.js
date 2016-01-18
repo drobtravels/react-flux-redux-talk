@@ -1,4 +1,4 @@
-let callData = [
+var callData = [
   {
     "id": 1,
     "from": "David",
@@ -13,9 +13,34 @@ let callData = [
   }
 ];
 
+var messageData = [
+  {
+    "id": 1,
+    "from": "David",
+    "body": "Don't forget to get ready for the talk!",
+    "date": "2015-01-20-T18:25:43-05:00"
+  },
+  {
+    "id": 2,
+    "from": "Sherry",
+    "body": "Are you going to that meeting?",
+    "date": "2015-01-20-T10:25:43-05:00"
+  },
+  {
+    "id": 3,
+    "from": "Jeff",
+    "body": "What are you doing tonight?",
+    "date": "2015-01-20-T13:25:43-05:00"
+  }
+];
+
 
 export var API = {
   getCalls() {
     return(callData);
+  },
+
+  getMessages() {
+    return(messageData);
   }
 }

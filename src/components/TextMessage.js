@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ListGroupItem, Input, Button } from 'react-bootstrap';
+import { ListGroupItem, Input, Button, Row } from 'react-bootstrap';
 import { Icon } from 'components/Icon';
 
 export class TextMessage extends Component {
@@ -7,7 +7,7 @@ export class TextMessage extends Component {
   textBody = () => {
     if (this.props.status === "draft") {
       return (
-        <div>
+        <Row>
           <Input
             type="textarea"
             placeholder="Message text"
@@ -15,7 +15,7 @@ export class TextMessage extends Component {
           <Button bsStyle="primary">
             <Icon type="paper-plane-o"/>
           </Button>
-        </div>
+        </Row>
       )
     } else {
       return <span>{this.props.body}</span>
@@ -24,9 +24,10 @@ export class TextMessage extends Component {
 
   render() {
     return(
-      <ListGroupItem header={this.props.from}>
+      <div className="list-group-item">
+        <h4 className="list-group-item-heading">{this.props.from}</h4>
         {this.textBody()}
-      </ListGroupItem>
+      </div>
     );
   }
 }

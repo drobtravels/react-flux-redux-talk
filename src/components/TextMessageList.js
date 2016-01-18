@@ -13,7 +13,9 @@ export class TextMessageList extends Component {
   render() {
     return(
       <Panel header={<h2>Text Messages</h2>}>
-        {this.messageNodes()}
+        <ListGroup>
+          {this.messageNodes()}
+        </ListGroup>
       </Panel>
     )
   }

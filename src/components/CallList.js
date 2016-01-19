@@ -4,12 +4,29 @@ import { Panel, ListGroup} from 'react-bootstrap';
 
 export class CallList extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = { calls: [] };
+  }
+
+  componentDidMount() {
+    this.props.flux.store('CallStore').on('change', this.updateCalls)
+  }
+
+  componentWillUnmount() {
+    this.props.flux.store('CallStore').removeListener('change', this.updateCalls);
+  }
+
+  updateCalls = () => {
+    this.setState({ calls: this.props.flux.store('CallStore').getCalls() });
+  };
+
   callNodes = () => {
-    return this.props.calls.map((call) => {
+    return this.state.calls.map((call) => {
       return <Call
         {...call}
         key={call.id}
-        textBackCallback={this.props.sendText}
+        flux={this.props.flux}
        />
     });
   };

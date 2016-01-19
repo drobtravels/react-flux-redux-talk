@@ -18,19 +18,22 @@ var messageData = [
     "id": 1,
     "from": "David",
     "body": "Don't forget to get ready for the talk!",
-    "date": "2015-01-20-T18:25:43-05:00"
+    "date": "2015-01-20-T18:25:43-05:00",
+    "status": "received"
   },
   {
     "id": 2,
-    "from": "Sherry",
+    "from": "Sherrie",
     "body": "Are you going to that meeting?",
-    "date": "2015-01-20-T10:25:43-05:00"
+    "date": "2015-01-20-T10:25:43-05:00",
+    "status": "received"
   },
   {
     "id": 3,
     "from": "Jeff",
     "body": "What are you doing tonight?",
-    "date": "2015-01-20-T13:25:43-05:00"
+    "date": "2015-01-20-T13:25:43-05:00",
+    "status": "received"
   }
 ];
 

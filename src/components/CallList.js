@@ -6,7 +6,11 @@ export class CallList extends Component {
 
   callNodes = () => {
     return this.props.calls.map((call) => {
-      return <Call key={call.id} {...call} />
+      return <Call
+        {...call}
+        key={call.id}
+        textBackCallback={this.props.sendText}
+       />
     });
   };
 

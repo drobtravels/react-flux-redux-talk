@@ -5,7 +5,7 @@ import { Icon } from 'components/Icon';
 export class Call extends Component {
 
   textBack = () => {
-    this.props.textBackCallback(this.props);
+    this.props.flux.actions.addText(this.props);
   };
 
   render() {

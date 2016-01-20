@@ -47,16 +47,17 @@
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
     "json-loader": "^0.5.4",
+    "redux-devtools": "^3.0.1",
     "rimraf": "^2.4.3",
     "webpack": "^1.12.9",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0"
   },
   "dependencies": {
-    "fluxxor": "^1.7.3",
     "lodash": "^4.0.0",
     "react": "^0.14.3",
     "react-bootstrap": "^0.28.2",
-    "react-dom": "^0.14.3"
+    "react-dom": "^0.14.3",
+    "redux": "^3.0.5"
   }
 }

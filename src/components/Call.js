@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { ListGroupItem, Button, Row, Col } from 'react-bootstrap';
 import { Icon } from 'components/Icon';
+import { addText } from 'myRedux/actions';
 
 export class Call extends Component {
 
   textBack = () => {
-    this.props.flux.actions.addText(this.props);
+    this.props.store.dispatch(addText(this.props));
   };
 
   render() {

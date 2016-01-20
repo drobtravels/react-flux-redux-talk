@@ -10,20 +10,20 @@ export class TextMessageList extends Component {
   }
 
   componentDidMount() {
-    this.props.flux.store('MessageStore').on('change', this.updateMessages)
+    this.unsubscribe = this.props.store.subscribe(this.updateMessages);
   }
 
   componentWillUnmount() {
-    this.props.flux.store('MessageStore').removeListener('change', this.updateMessages);
+    this.unsubscribe();
   }
 
   updateMessages = () => {
-    this.setState({ messages: this.props.flux.store('MessageStore').getMessages() });
+    this.setState({ messages: this.props.store.getState().messages });
   };
 
   messageNodes = () => {
     return this.state.messages.map( (message) => {
-      return <TextMessage key={message.id} {...message} flux={this.props.flux} />
+      return <TextMessage key={message.id} {...message} store={this.props.store} />
     });
   };
 

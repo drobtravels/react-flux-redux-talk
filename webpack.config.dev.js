@@ -17,7 +17,8 @@ module.exports = {
   resolve: {
     alias: {
       components: path.join(__dirname, 'src', 'components'),
-      application: path.join(__dirname, 'src')
+      application: path.join(__dirname, 'src'),
+      myRedux: path.join(__dirname, 'src', 'myRedux')
     },
     extensions: ['', '.js', '.jsx', '.json']
   },

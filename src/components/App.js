@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { CallList } from 'components/CallList';
 import { TextMessageList } from 'components/TextMessageList';
 import { Grid, Row, Col } from 'react-bootstrap';
+import { fetchCalls, fetchMessages } from 'myRedux/actions';
 
 export class App extends Component {
 
   componentDidMount() {
-    this.props.flux.actions.fetchCalls();
-    this.props.flux.actions.fetchMessages();
+    var store = this.props.store;
+    store.dispatch(fetchCalls());
+    store.dispatch(fetchMessages());
   }
 
   render() {
@@ -16,10 +18,10 @@ export class App extends Component {
         <h1> Calls Application </h1>
         <Row>
           <Col xs={3}>
-            <CallList flux={this.props.flux} />
+            <CallList store={this.props.store} />
           </Col>
           <Col xs={8}>
-            <TextMessageList flux={this.props.flux} />
+            <TextMessageList store={this.props.store} />
           </Col>
         </Row>
       </Grid>

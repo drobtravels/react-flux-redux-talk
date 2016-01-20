@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { App } from 'components/App';
-import { flux } from 'application/flux'
+import store from 'myRedux/store';
 
-render(<App flux={flux} />, document.getElementById('root'));
+render(<App store={store} />, document.getElementById('root'));

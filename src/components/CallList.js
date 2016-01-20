@@ -10,15 +10,15 @@ export class CallList extends Component {
   }
 
   componentDidMount() {
-    this.props.flux.store('CallStore').on('change', this.updateCalls)
+    this.unsubscribe = this.props.store.subscribe(this.updateCalls);
   }
 
   componentWillUnmount() {
-    this.props.flux.store('CallStore').removeListener('change', this.updateCalls);
+    this.unsubscribe();
   }
 
   updateCalls = () => {
-    this.setState({ calls: this.props.flux.store('CallStore').getCalls() });
+    this.setState({ calls: this.props.store.getState().calls });
   };
 
   callNodes = () => {
@@ -26,7 +26,7 @@ export class CallList extends Component {
       return <Call
         {...call}
         key={call.id}
-        flux={this.props.flux}
+        store={this.props.store}
        />
     });
   };
